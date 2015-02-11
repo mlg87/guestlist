@@ -1,0 +1,46 @@
+/*******************************************************
+
+STYLING FOR THE HOST PORTAL
+
+*******************************************************/
+
+.host-display {
+  text-align: center;
+}
+
+.host-display-img-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  margin: auto;
+
+  border: 5px solid #3498db;
+}
+
+.host-display-window img {
+  /*transfrom: translate(50%, 50%);*/
+  width: 100%;
+  z-index: -1;
+}
+
+.guest-display-img-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  margin: auto;
+
+  border: 2px solid #3498db;
+}
+
+.guest-display-img-container img {
+  width: 100%;
+  z-index: -1;
+}
+
+.guest-display {
+  text-align: center;
+}

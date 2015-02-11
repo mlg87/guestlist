@@ -5,7 +5,8 @@
     <title>GuestList | Find Your +1</title>
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/landing_page.css">
   </head>
   <body>
 
@@ -37,7 +38,7 @@
           <p>GuestList puts you in touch with other singles heading to same wedding and let's you connect before you arrive. Till tomorrow do you part.</p>
 
           <!-- button trigger for registration modal -->
-          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrationModal">Register for GuestList</button>
+          <button class="btn btn-primary btn-lg" id="landing-page-registration" data-toggle="modal" data-target="#registrationModal">Register for GuestList</button>
 
           <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -49,8 +50,8 @@
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <label for="landing-page-reg-modal-email">Email address</label>
+                      <input type="email" class="form-control" id="landing-page-reg-modal-email" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
@@ -86,7 +87,9 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/landing_page.js"></script>
 
   </body>
 </html>

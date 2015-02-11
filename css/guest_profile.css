@@ -1,0 +1,18 @@
+.guest-portal-img-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  overflow: hidden;
+
+  margin: auto;
+
+  border: 5px solid #3498db;
+}
+
+.guest-portal-img-container img {
+  width: 100%;
+}
+
+.guest-portal-display-window{
+  margin-top: 40px;
+}

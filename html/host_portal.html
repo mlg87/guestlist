@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GuestList | Host Portal</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/host_portal.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">GuestList</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+         <ul class="nav navbar-nav">
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">MyWedding<span class="caret"></span></a>
+             <ul class="dropdown-menu" role="menu">
+               <li><a data-toggle="modal" href="#host-guest-invite-modal">Invite Guests</a></li>
+               <li><a data-toggle="modal" href="#host-edit-info-modal">Edit Wedding Info</a></li>
+               <li class="divider"></li>
+               <li class="warning"><a href="#">Cancel the Wedding <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></li>
+             </ul>
+           </li>
+         </ul>
+        </div> <!-- collapse navbar-collapse -->
+      </div> <!-- container -->
+    </nav>
+
+    <div class="modal fade" id="host-guest-invite-modal" tabindex="-1" role="dialog" aria-labelledby="inviteGuests" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="inviteGuests">Invite Singles to Your GuestList</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group orig-guest-email-field">
+                <label for="guest-email">Guest email:</label>
+                <input type="email" class="form-control" id="host-profile-pic" placeholder="singlefriend@gmail.com">
+              </div>
+              <button type="button" class="btn btn-default" id="guest-invite-additional-email">Add Another Guest</button>
+              <div class="form-group">
+                <label for="guest-invite-message-body">Message:</label>
+                <textarea class="form-control" id="guest-invite-message-body" rows="3">Join the wedding party on GuestList and get to know the other singles that will be joining us before our special day. Can't wait to see you there.</textarea>
+              </div>
+            </form>
+          </div> <!-- modal-body -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Send</button>
+          </div> <!-- modal footer -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
+
+    <div class="modal fade" id="host-edit-info-modal" tabindex="-1" role="dialog" aria-labelledby="editWeddingInfo" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="editWeddingInfo">Edit Wedding Info</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="host-profile-pic">Profile Picture (square image at least 250px x 250px)</label>
+                <input type="email" class="form-control" id="host-profile-pic" placeholder="URL">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-location">Location</label>
+                <input type="password" class="form-control" id="host-wedding-location" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-venue">Venue</label>
+                <input type="text" class="form-control" id="host-wedding-venue" placeholder="eg. Pepsi Center">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-date">Date</label>
+                <input type="text" class="form-control" id="host-wedding-date" placeholder="mm/dd/yyyy">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-time">Time</label>
+                <input type="text" class="form-control" id="host-wedding-time" placeholder="h(h):mm PM/AM">
+              </div>
+              <div class="form-group">
+                <label for="host-rehearsal-dinner-venue">Rehearsal Dinner Venue</label>
+                <input type="text" class="form-control" id="host-rehearsal-dinner-venue" placeholder="eg. Red Lobster on 5th">
+              </div>
+              <div class="form-group">
+                <label for="host-rehearsal-dinner-time">Rehearsal Dinner Time</label>
+                <input type="text" class="form-control" id="host-rehearsal-dinner-time" placeholder="h(h):mm PM/AM">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-site">Wedding Site</label>
+                <input type="text" class="form-control" id="host-wedding-site" placeholder="URL">
+              </div>
+            </form>
+          </div> <!-- modal-body -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Update</button>
+          </div> <!-- modal footer -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
+    <div class="container">
+      <div class="row host-display">
+        <div class="col-md-4 host-display-window">
+        </div>
+        <div class="col-md-8">
+          <h2 class="btm-spacer">Wedding Information</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <h4 class="wedding-location">Location:</h4>
+              <h4 class="wedding-venue">Venue:</h4>
+            </div>
+            <div class="col-md-4">
+              <h4 class="wedding-date">Date:</h4>
+              <h4 class="wedding-time">Time:</h4>
+            </div>
+            <div class="col-md-4">
+              <h4 class="rehearsal-dinner-venue">Rehearsal Dinner Venue:</h4>
+              <h4 class="rehearsal-dinner-date">Rehearsal Dinner Date:</h4>
+              <h4 class="rehearsal-dinner-time">Rehearsal Dinner Time:</h4>
+            </div>
+          </div> <!-- row -->
+        </div> <!-- col-md-8 -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 host-display">
+          <h2 class="btm-spacer">GuestList:</h2>
+        </div>
+      </div> <!-- row -->
+      <div class="row guest-display">
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+
+
+    <footer class="footer navbar-fixed-bottom">
+      <div class="container">
+        <p class="text-muted credit">This gorgeous site is brought to you by <a href="https://github.com/mlg87">Mason Goetz</a> &copy;2015</p>
+      </div>
+    </footer>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/host_portal.js"></script>
+
+  </body>
+</html>
+
+
+
+<!-- <h2 class="host-name">HOST & FIANCE</h2>
+<img id="wedding-host-couple-photo" src="WeddingHost.couplePhoto" alt="HOST & FIANCE"> -->
