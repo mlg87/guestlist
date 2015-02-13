@@ -8,10 +8,16 @@ Main Features:
 Bonus/Cool Future Features:
  ☐ About section farther down on the landing page
  ☐ 'my weddings' page
- ☐
+ ☐ add 'chatter' (comment) section to the wedding page
+ ☐ when the host fills out the 'invite guests' modal and pushes 'send', it actually sends
+ ☐ make the 'suggest cancelling the wedding' & 'cancel the wedding' menu options send a message to either the host or all of the guests
+ ☐ when a guest arrives to register, they will need to come from a secure link. upon arriving at the landing page and registering, that link will somehow need to know which WeddingParty to add them to
+ ☐ when a new host registers, i need it to create a new WeddingInfo and WeddingParty with unique names to the host
+ ☐ on hover of guest cards, they apply a darker filter and then link to their guest profile page
+ ☐ allow hosts to make introductions to different guests
 
 Should I:
- ☐ have user's display their phone numbers?
+ ✘ have user's display their phone numbers? @cancelled (15-02-11 15:53)
  ☐ link to their facebook accounts to grab photos and info?
  ☐ allow users that are not single?
  ☐ display when users will be arriving/leaving at/from the wedding?
@@ -22,6 +28,8 @@ Classes that I will need:
 
 Class Updates Needed:
  ☐ a message from the host to the guests to be displayed on the wedding page (as viewed by guest)
+ ☐ both WeddingGuest and WeddingHost will need to have a password attribute created as well as an email attr
+ ☐ every WeddingParty will need it's own unique identifier so that guests can be invited to the site and sign in without a password. this will also help when guests register so they get added to the appropriate WeddingParty
 
 Class Methods I will need:
  ☐
@@ -46,15 +54,20 @@ Bride & Groom Portal:
  ☐ set invite guest modal to reset the form area when 'cancel' is clicked
  ☐ link invite guest modal to send invites when 'send' is clicked
  ☐ create modal for when 'cancel the wedding' is clicked to display 'Are you sure? I bet that (WeddingHost.fiance) will be upset with you'
+ ☐ rewrite the click handler so that it works for whatever host is signed in, as opposed to drewAndSarah for the example
 
 Wedding Page:
  ☐ make 'location' link to the google maps page for the wedding
- ☐ make the couple photo a fixed width and height regardless of incoming size. full border radius. will need to translate x and y by 50% (make div a window)
+ ✔ make the couple photo a fixed width and height regardless of incoming size. full border radius. will need to translate x and y by 50% (make div a window) @done (15-02-12 14:33)
  ☐ link every guest snippet to that guest's page
+ ☐ build 'Chatter' section that is a comment thread
+ ☐ link 'Add Chatter' in comment modal to add the message as chatter for the page
+ ☐ figure out reply section
 
 Guest Portal:
  ☐ show the number of notifications and messages next to 'inbox' and 'notifications' in the dropdown menu
  ☐ area to upload more photos (can be an empty array on the WeddingGuest class)
+ ☐ remove duplicate guests from the glRender
 
 
 

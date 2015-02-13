@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>GuestList | Find Your +1</title>
+    <title>GuestList | Wedding Page</title>
     <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
@@ -25,7 +25,7 @@
                 <li><a data-toggle="modal" href="#host-edit-info-modal">Inbox</a></li>
                 <li><a data-toggle="modal" href="#host-edit-info-modal">Notifications</a></li>
                 <li class="divider"></li>
-                <li class="warning"><a href="#">Suggest to Cancel the Wedding <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></li>
+                <li><a href="#guest-cancel-wedding" data-toggle="modal">Suggest to Cancel the Wedding <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></li>
               </ul>
             </li>
           </ul>
@@ -33,15 +33,120 @@
       </div> <!-- container -->
     </nav>
 
+    <!-- modal for suggesting to cancel the wedding -->
+    <div class="modal fade" id="guest-cancel-wedding" tabindex="-1" role="dialog" aria-labelledby="guestSuggestToCancelWedding" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Seriously?</h4>
+          </div>
+          <div class="modal-body">
+            <p>Come on, you didn't really think that we would let you make a suggestion to cancel the wedding? Did you? That would be the worst feature conceived. Not to mention, we bet you'd regret it when you're sober tomorrow, Derek.</p>
+            <p class="quote-src-right">- GuestList Team</p>
+          </div> <!-- modal-body -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
     <div class="container">
       <div class="row">
-        <div class="col-md-12 guest-portal-display-window"></div>
+        <div class="col-md-12 host-display-window side-cleanup"></div>
+      </div>
+    </div>
+
+    <div class="container btm-spacer">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 class="wedding-location">Location:</h4>
+          <h4 class="wedding-date">Date:</h4>
+          <h4 class="wedding-time">Time:</h4>
+        </div>
+        <div class="col-md-4">
+          <h4 class="wedding-venue">Venue:</h4>
+          <h4 class="wedding-site">Wedding Site</h4>
+        </div>
+        <div class="col-md-4">
+          <h4 class="rehearsal-dinner-venue">Rehearsal Dinner Venue:</h4>
+          <h4 class="rehearsal-dinner-time">Rehearsal Dinner Time:</h4>
+          <h4 class="rehearsal-dinner-date">Rehearsal Dinner Date:</h4>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+    <div class="container">
+      <div class="row">
+        <h2 class="btm-spacer middle">GuestList</h2>
+        <div class="guest-display btm-spacer"></div>
+        <h2 class="btm-spacer middle">Chatter</h2>
+        <!-- btn for add comment modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#wedding-page-add-comment-modal">Add to the Chatter</button>
+        <div class="wedding-page-chatter btm-spacer"></div>
       </div>
     </div>
 
 
+    <!-- template for chatterMsg -->
+    <div class="container chatter-msg-tem chatter-msg inactive">
+      <div class="row">
+        <div class="col-md-2 media-left">
+          <!-- this is where the guest's prof pic will go -->
+        </div>
+        <div class="col-md-10 media-body">
+          <h4 class="media-heading">TEST</h4>
+          <p class="chatter-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam maiores, sunt earum ad tempore ipsum ea adipisci enim nobis non impedit fuga quisquam obcaecati accusamus pariatur minus, consequatur iusto cumque.</p>
+          <button class="btn btn-primary btn-small comment-reply" data-toggle="modal" data-target="#wedding-page-comment-reply">Reply</button>
+        </div>
+      </div>
+    </div>
 
+    <!-- modal for adding a comment -->
+    <div class="modal fade" id="wedding-page-add-comment-modal" tabindex="-1" role="dialog" aria-labelledby="inviteGuests" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Let Your Friends Know How You Really Feel</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="guest-add-chatter-body">Chatter:</label>
+                <textarea class="form-control" id="guest-add-chatter-body" rows="4" placeholder="Have you thought this through? I mean, like really thought this through?"></textarea>
+              </div>
+            </form>
+          </div> <!-- modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Add Chatter</button>
+          </div> <!-- modal footer -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
 
+    <!-- modal for replying to some chatter -->
+    <div class="modal fade" id="wedding-page-comment-reply" tabindex="-1" role="dialog" aria-labelledby="inviteGuests" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="wedding-page-comment-reply-heading">Reply to _______</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="guest-add-chatter-body">Reply:</label>
+                <textarea class="form-control" id="guest-add-chatter-body" rows="4" placeholder="I can't believe you said that! I am offended."></textarea>
+              </div>
+            </form>
+          </div> <!-- modal-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Add Reply</button>
+          </div> <!-- modal footer -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
 
     <!-- FOOTER -->
     <footer class="footer navbar-fixed-bottom">
@@ -53,8 +158,13 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/wedding_page.js"></script>
 
   </body>
 </html>
+
+
+<!-- moment js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>

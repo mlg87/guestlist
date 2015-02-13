@@ -10,6 +10,7 @@
   </head>
   <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -23,7 +24,7 @@
                <li><a data-toggle="modal" href="#host-guest-invite-modal">Invite Guests</a></li>
                <li><a data-toggle="modal" href="#host-edit-info-modal">Edit Wedding Info</a></li>
                <li class="divider"></li>
-               <li class="warning"><a href="#">Cancel the Wedding <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></li>
+               <li><a data-toggle="modal" href="#host-cancel-wedding">Cancel the Wedding <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></a></li>
              </ul>
            </li>
          </ul>
@@ -31,6 +32,23 @@
       </div> <!-- container -->
     </nav>
 
+    <!-- modal for cancelling the wedding -->
+    <div class="modal fade" id="host-cancel-wedding" tabindex="-1" role="dialog" aria-labelledby="guestSuggestToCancelWedding" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Hold The Phone</h4>
+          </div>
+          <div class="modal-body">
+            <p>Is this really the best way to let all of single friends know that they won't be meeting each other? Perhaps a personal call to each detailing why your relationship won't work is a better solution</p>
+            <p class="quote-src-right">- GuestList Team</p>
+          </div> <!-- modal-body -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
+    <!-- modal for WeddingHosts to invite new guests to their WeddingParty -->
     <div class="modal fade" id="host-guest-invite-modal" tabindex="-1" role="dialog" aria-labelledby="inviteGuests" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -42,7 +60,7 @@
             <form>
               <div class="form-group orig-guest-email-field">
                 <label for="guest-email">Guest email:</label>
-                <input type="email" class="form-control" id="host-profile-pic" placeholder="singlefriend@gmail.com">
+                <input type="email" class="form-control" id="guest-invite-em-ad" placeholder="singlefriend@gmail.com">
               </div>
               <button type="button" class="btn btn-default" id="guest-invite-additional-email">Add Another Guest</button>
               <div class="form-group">
@@ -60,7 +78,7 @@
       </div> <!-- modal-dialog -->
     </div> <!-- modal -->
 
-
+    <!-- modal for editing the WeddingHost values -->
     <div class="modal fade" id="host-edit-info-modal" tabindex="-1" role="dialog" aria-labelledby="editWeddingInfo" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -72,11 +90,11 @@
             <form>
               <div class="form-group">
                 <label for="host-profile-pic">Profile Picture (square image at least 250px x 250px)</label>
-                <input type="email" class="form-control" id="host-profile-pic" placeholder="URL">
+                <input type="text" class="form-control" id="host-profile-pic" placeholder="URL">
               </div>
               <div class="form-group">
                 <label for="host-wedding-location">Location</label>
-                <input type="password" class="form-control" id="host-wedding-location" placeholder="City">
+                <input type="text" class="form-control" id="host-wedding-location" placeholder="City">
               </div>
               <div class="form-group">
                 <label for="host-wedding-venue">Venue</label>
@@ -84,15 +102,19 @@
               </div>
               <div class="form-group">
                 <label for="host-wedding-date">Date</label>
-                <input type="text" class="form-control" id="host-wedding-date" placeholder="mm/dd/yyyy">
+                <input type="date" class="form-control" id="host-wedding-date" placeholder="mm/dd/yyyy">
               </div>
               <div class="form-group">
                 <label for="host-wedding-time">Time</label>
-                <input type="text" class="form-control" id="host-wedding-time" placeholder="h(h):mm PM/AM">
+                <input type="time" class="form-control" id="host-wedding-time" placeholder="h(h):mm PM/AM">
               </div>
               <div class="form-group">
                 <label for="host-rehearsal-dinner-venue">Rehearsal Dinner Venue</label>
                 <input type="text" class="form-control" id="host-rehearsal-dinner-venue" placeholder="eg. Red Lobster on 5th">
+              </div>
+               <div class="form-group">
+                <label for="host-rehearsal-dinner-date">Rehearsal Dinner Date</label>
+                <input type="date" class="form-control" id="host-rehearsal-dinner-date" placeholder="mm/dd/yyyy">
               </div>
               <div class="form-group">
                 <label for="host-rehearsal-dinner-time">Rehearsal Dinner Time</label>
@@ -107,7 +129,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-primary" id="host-portal-update-info">Update</button>
           </div> <!-- modal footer -->
         </div> <!-- modal content -->
       </div> <!-- modal-dialog -->
@@ -148,8 +170,7 @@
       </div> <!-- row -->
     </div> <!-- container -->
 
-
-
+    <!-- FOOTER -->
     <footer class="footer navbar-fixed-bottom">
       <div class="container">
         <p class="text-muted credit">This gorgeous site is brought to you by <a href="https://github.com/mlg87">Mason Goetz</a> &copy;2015</p>

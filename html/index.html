@@ -10,6 +10,7 @@
   </head>
   <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -40,6 +41,7 @@
           <!-- button trigger for registration modal -->
           <button class="btn btn-primary btn-lg" id="landing-page-registration" data-toggle="modal" data-target="#registrationModal">Register for GuestList</button>
 
+          <!-- landing page registration modal -->
           <div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -48,29 +50,14 @@
                   <h4 class="modal-title" id="myModalLabel">Register for GuestList</h4>
                 </div>
                 <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="landing-page-reg-modal-email">Email address</label>
-                      <input type="email" class="form-control" id="landing-page-reg-modal-email" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="reg-as">Registering As:</label>
-                        <select class="form-control" id="reg-as">
-                          <option value="guest">Guest</option>
-                          <option value="host">Host</option>
-                        </select>
-                    </div>
-                  </form>
+                    <div class="container">
+                      <h3 class="middle">Register As</h3>
+                      <div class="row">
+                        <div class="col-md-6"><button class="btn btn-primary btn-lg modal-btn" id="guest-register-landing-btn">Guest</button></div>
+                        <div class="col-md-6"><button class="btn btn-primary btn-lg modal-btn" id="host-register-landing-btn">Host</button></div>
+                      </div> <!-- row -->
+                    </div> <!-- container -->
                 </div> <!-- modal-body -->
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Register</button>
-                </div> <!-- modal footer -->
               </div> <!-- modal content -->
             </div> <!-- modal-dialog -->
           </div> <!-- modal -->
@@ -78,6 +65,131 @@
       </div> <!-- container -->
     </div> <!-- jumbtron -->
 
+    <!-- modal for guest registration -->
+    <div class="modal fade" id="guest-landing-page-registration-modal" tabindex="-1" role="dialog" aria-labelledby="editWeddingInfo" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Guest Information</h4>
+          </div>
+          <div class="modal-body">
+            <form action="" id="guest-registration-form-landing-page"> <!-- when live, action="guest_portal.html" -->
+              <div class="form-group">
+                <label for="guest-name">Name</label>
+                <input type="text" class="form-control" id="guest-name" placeholder="First Name Only">
+              </div>
+              <div class="form-group">
+                <label for="guest-email">Email</label>
+                <input type="email" class="form-control" id="guest-email" placeholder="mrawesome@gmail.com">
+              </div>
+              <div class="form-group">
+                <label for="guest-profile-pic">Profile Picture (square image at least 250px x 250px)</label>
+                <input type="url" class="form-control" id="guest-profile-pic" placeholder="URL">
+              </div>
+              <div class="form-group">
+                <label for="guest-hometown">Hometown</label>
+                <input type="text" class="form-control" id="guest-hometown" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="guest-age">Age</label>
+                <input type="number" class="form-control" id="guest-age" placeholder="##">
+              </div>
+              <div class="form-group">
+                <label for="guest-friends-of">Friend Of The</label>
+                  <select class="form-control" id="guest-friends-of">
+                    <option value="Bride">Bride</option>
+                    <option value="Groom">Groom</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="guest-background-story">How You Know The Bride/Groom</label>
+                <textarea class="form-control" id="guest-background-story" rows="3" placeholder="Well it all started on the first day of college..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="guest-wedding-story">Your Best Story About The Couple</label>
+                <textarea class="form-control" id="guest-wedding-story" rows="3" placeholder="This one time when we were all at Shotgun Willy's..."></textarea>
+              </div>
+              <input type="submit" class="btn btn-primary btn-lg" id="guest-landing-page-submit-btn">
+            </form>
+          </div> <!-- modal-body -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
+    <!-- modal for host registration -->
+    <div class="modal fade" id="host-landing-page-registration-modal" tabindex="-1" role="dialog" aria-labelledby="editWeddingInfo" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="editWeddingInfo">Host Information</h4>
+          </div>
+          <div class="modal-body">
+            <form action="" id="host-registration-form-landing-page"> <!-- when live, action=host_portal.html -->
+              <div class="form-group">
+                <label for="host-name">Name</label>
+                <input type="text" class="form-control" name="host-name" id="host-name" placeholder="First Name Only">
+              </div>
+              <div class="form-group">
+                <label for="host-age">Age</label>
+                <input type="number" class="form-control" name="host-age" id="host-age" placeholder="##">
+              </div>
+              <div class="form-group">
+                <label for="host-type">You Are The:</label>
+                <select class="form-control" id="host-type">
+                  <option value="bride">Bride</option>
+                  <option value="groom">Groom</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="host-name">Your Fiance's Name</label>
+                <input type="text" class="form-control" id="host-fiance-name" placeholder="First Name Only">
+              </div>
+              <div class="form-group">
+                <label for="host-profile-pic">Couple Photo (square image at least 250px x 250px)</label>
+                <input type="url" class="form-control" id="host-profile-pic" placeholder="URL">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-location">Location</label>
+                <input type="text" class="form-control" id="host-wedding-location" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-venue">Venue</label>
+                <input type="text" class="form-control" id="host-wedding-venue" placeholder="eg. Pepsi Center">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-date">Date</label>
+                <input type="text" class="form-control" id="host-wedding-date" placeholder="mm/dd/yyyy">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-time">Time</label>
+                <input type="text" class="form-control" id="host-wedding-time" placeholder="h(h):mm PM/AM">
+              </div>
+              <div class="form-group">
+                <label for="host-rehearsal-dinner-venue">Rehearsal Dinner Venue</label>
+                <input type="text" class="form-control" id="host-rehearsal-dinner-venue" placeholder="eg. Red Lobster on 5th">
+              </div>
+              <div class="form-group">
+                <label for="host-rehearsal-dinner-time">Rehearsal Dinner Time</label>
+                <input type="text" class="form-control" id="host-rehearsal-dinner-time" placeholder="h(h):mm PM/AM">
+              </div>
+              <div class="form-group">
+                <label for="host-rehearsal-dinner-date">Rehearsal Dinner Date</label>
+                <input type="text" class="form-control" id="host-rehearsal-dinner-date" placeholder="mm/dd/yyyy">
+              </div>
+              <div class="form-group">
+                <label for="host-wedding-site">Wedding Site</label>
+                <input type="url" class="form-control" id="host-wedding-site" placeholder="URL">
+              </div>
+              <input type="submit" class="btn btn-primary btn-lg" id="host-landing-page-submit-btn">
+            </form>
+          </div> <!-- modal-body -->
+        </div> <!-- modal content -->
+      </div> <!-- modal-dialog -->
+    </div> <!-- modal -->
+
+    <!-- FOOTER -->
     <footer class="footer navbar-fixed-bottom">
       <div class="container">
         <p class="text-muted credit">This gorgeous site is brought to you by <a href="https://github.com/mlg87">Mason Goetz</a> &copy;2015</p>
