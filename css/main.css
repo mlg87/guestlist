@@ -110,3 +110,8 @@ UTILITY CLASSES
   background-color: rgba(66, 74, 77, .4);
   z-index: 1000;
 }
+
+.timestamp {
+  font-size: .7em;
+}
+

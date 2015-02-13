@@ -87,7 +87,7 @@ WeddingHost.prototype.infoReRender = function() {
 // WEDDING GUEST CLASS & METHODS //
 ///////////////////////////////////
 
-var WeddingGuest = function(name, age, hometown, friendsOf, backgroundStory, weddingStory, profilePic, email, threads, chatterComments) {
+var WeddingGuest = function(name, age, hometown, friendsOf, backgroundStory, weddingStory, profilePic, email, threads, chatterComments, chatterReplies) {
   this.name = name;
   this.age = age;
   this.hometown = hometown;
@@ -98,12 +98,13 @@ var WeddingGuest = function(name, age, hometown, friendsOf, backgroundStory, wed
   this.email = email;
   this.threads = [];
   this.chatterComments = [];
+  this.chatterReplies = [];
 };
 
 // method for rendering guest images on the GuestList of most pages
 WeddingGuest.prototype.snippetRender = function() {
   // need to link snippets to given user's profile
-  this.$el = $('<div class="col-xs-6 col-md-3">')
+  this.$el = $('<div class="col-xs-6 col-sm-4 col-md-3">')
     .append('<div class="guest-display-img-container guest-snippet"><a href="http://www.christianmingle.com/"><img src=' + this.profilePic + '><span class="overlay"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></a></div>')
     .append('<p>' + this.name + '</p>');
 
@@ -160,23 +161,42 @@ WeddingGuest.prototype.profileInfoRender = function() {
 };
 
 WeddingGuest.prototype.chatterSnippetRender = function() {
-  this.$el = $('<div class="chatter-img-container"><a href="http://www.christianmingle.com/"><img src=' + this.profilePic + '><span class="overlay"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></a></div>');
+  this.$el = $('<div class="chatter-img-container guest-snippet"><a href="http://www.christianmingle.com/"><img src=' + this.profilePic + '><span class="overlay"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></a></div>');
   return this.$el;
+};
+
+WeddingGuest.prototype.chatterReplySnippetRender = function() {
+  this.$el = $('<div class="chatter-reply-img-container"><a href="http://www.christianmingle.com/"><img src=' + this.profilePic + '><span class="overlay"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span></a></div>');
 };
 
 WeddingGuest.prototype.chatterMsg = function() {
   var newComment = $('.chatter-msg-tem').clone().removeClass('inactive chatter-msg-tem');
   newComment.find('.media-left').html((this.chatterSnippetRender()));
-  newComment.find('.media-heading').text(this.name);
+  newComment.find('.media-heading').html(this.name + ' <p class="text-muted timestamp">' + moment().format('MMM Do YYYY @ h:mm') + '</p>');
   newComment.find('.chatter-body').text(
     _.last(this.chatterComments)
   );
   $('.wedding-page-chatter').append(newComment);
 };
 
+WeddingGuest.prototype.chatterReply = function() {
+  var newReply = $('.chatter-reply-tem').removeClass('inactive');
+  newReply.find('.media-left').html((this.chatterReplySnippetRender()));
+  newReply.find('.media-heading').text(this.name);
+  newReply.find('.chatter-body').text(
+    _.last(this.chatterReplies)
+  );
+};
+
 WeddingGuest.prototype.addChatterComment = function() {
   this.chatterComments = this.chatterComments.concat([].slice.call(arguments));
 };
+
+WeddingGuest.prototype.addChatterReply = function() {
+  this.chatterReplies = this.chatterReplies.concat([].slice.call(arguments));
+};
+
+// it would be nice to have a method for adding replies to WeddingGuests that stores the thread and other WeddingGuests that have taken part in the thread
 
 ////////////////////////////////////
 //  WEDDING PARTY CLASS & METHODS //
@@ -240,6 +260,6 @@ drewAndSarahParty.addGuest(mason, aly, sally, tim, john, susan, demetri, julie);
 // sample WeddingInfo
 var drewAndSarahInfo = new WeddingInfo(drewAndSarah);
 
-demetri.addChatterComment('I can\' believe I got invited to the wedding!');
+demetri.addChatterComment('I can\'t believe I got invited to the wedding!');
 julie.addChatterComment('So excited guys! I can\'t wait to see what Drew let\'s you wear, Sarah.');
 tim.addChatterComment('There is no other couple that I would rather drink for the first time with! Here\'s to being 21!');
